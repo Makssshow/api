@@ -1,0 +1,425 @@
+{
+  "openapi" : "3.0.0",
+  "servers" : [ {
+    "description" : "SwaggerHub API Auto Mocking",
+    "url" : "https://virtserver.swaggerhub.com/creative6/CevastLogin/1.0.0"
+  }, {
+    "description" : "SwaggerHub API Auto Mocking",
+    "url" : "https://www.cevast.com"
+  } ],
+  "info" : {
+    "description" : "This is a simple API For Login Links Cveek.com",
+    "version" : "1.0.0",
+    "title" : "Simple Login API  For Login Links"
+  },
+  "tags" : [ {
+    "name" : "jobSeeker",
+    "description" : "jobSeeker Login Api's"
+  }, {
+    "name" : "Auth",
+    "description" : "auth Login Api's"
+  }, {
+    "name" : "Reset Password",
+    "description" : "Reset Password Api's"
+  } ],
+  "paths" : {
+    "/auth/login" : {
+      "post" : {
+        "tags" : [ "Auth" ],
+        "summary" : "login User By jobSeeker Type api",
+        "operationId" : "LoginJobSeeker",
+        "responses" : {
+          "200" : {
+            "description" : "logged in and send bearer token /*OR*/ error message when login as another user type  There is no permission with Job Seeker"
+          },
+          "422" : {
+            "description" : "invalid input, object invalid"
+          },
+          "401" : {
+            "$ref" : "#/components/responses/UnauthorizedError"
+          }
+        },
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "username" : {
+                    "type" : "string",
+                    "example" : "thuel@example.com"
+                  },
+                  "password" : {
+                    "type" : "string",
+                    "example" : "secret"
+                  }
+                }
+              }
+            }
+          },
+          "description" : "Login User and send bearerToken"
+        }
+      }
+    },
+    "/auth/user_info" : {
+      "get" : {
+        "tags" : [ "Auth" ],
+        "summary" : "login User By jobSeeker Type api",
+        "operationId" : "get user information data",
+        "security" : [ {
+          "bearerAuth" : [ "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6Ijk0YTljNzA1OTczMGYwZmE2ZDFmYzJlN2VkZDNiNWFjYzU0MjQ5MmIzNTI0YmNmNzE2NzZmMzEzMDUwMzMyMzUwNGMzMDU2NGYyMWNmNTg4In0.eyJhdWQiOiIyIiwianRpIjoiOTRhOWM3MDU5NzMwZjBmYTZkMWZjMmU3ZWRkM2I1YWNjNTQyNDkyYjM1MjRiY2Y3MTY3NmYzMTMwNTAzMzIzNTA0YzMwNTY0ZjIxY2Y1ODgiLCJpYXQiOjE2MjgxNTc2NTUsIm5iZiI6MTYyODE1NzY1NSwiZXhwIjoxNjMwNzQ5NjU1LCJzdWIiOiIxIiwic2NvcGVzIjpbIlJPTEVfSk9CX1NFRUtFUiJdfQ.p4gMpGmTgO-7XlxXJUvevSAASsGjVEESsHatWUGO1YCAE5zh2VSWhNOvOv_V76rsKVSU3eb1gsTH0yaQDd0kYSeB3s7FtiQupMpslqmUgovmp1k-QandxezfyWehuM5mW0NyGM31_jymDO3b0xkTTgzkJxsh_bekws6-lKqsxExNdQCq5mx34Y8FC9p0uS5mz7_3vP-6w6ozHi6P_OXoQGp045nwFVRJN9abvWLtq4V3upfivfMR-PNPrvdZwX-iCcDgaxJxp-hp9gqkQ54e4S6b-KqQC5YB1kA5yl3iE46hzRartp0QlH4jB2ldwof6ndnClKXMGSfqZce-YB6tuaI1HHy8gFYuZlLr1DrfklzXm3PvIuZd8TyX88tyew9ROdbmvjirTRwT4_a1aaRuQvnqKhFc8vvs2bP-oWVGjrzLdipQVdk5YRv8BCmGYyOo0y3NbplBf1z6geugvZezE9AedFbpbgaAQ0Yt0lY7Yfz5djMRTRbiuvrQ0AoG0YkXWa2auHk-nRkJ8BLcVJxTwbYIjgePsjRLz-lOUKcVYe6omqH3uCh-Tp6xM9XmsFR3O5BeNe1tXOWUjbBBuibbeC2V1BE2YLs9aH4WVSQxedpdXQcYbxj4EWfHj_zSzJrrsRkBG67Ll6SXtwIxceIPPoIJufxmX-B1RkVpW_nzI14" ]
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "logged in and send bearer token /*OR*/ error message when login as another user type  There is no permission with Job Seeker"
+          },
+          "422" : {
+            "description" : "invalid input, object invalid"
+          },
+          "401" : {
+            "$ref" : "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/auth/user/sign_up" : {
+      "post" : {
+        "tags" : [ "jobSeeker" ],
+        "summary" : "SignUp User By jobSeeker Type api",
+        "operationId" : "SignUpJobSeeker",
+        "responses" : {
+          "200" : {
+            "description" : "signup and send email"
+          },
+          "422" : {
+            "description" : "invalid input, object invalid"
+          },
+          "401" : {
+            "$ref" : "#/components/responses/UnauthorizedError"
+          }
+        },
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "email" : {
+                    "type" : "string"
+                  },
+                  "password" : {
+                    "type" : "string"
+                  },
+                  "first_name" : {
+                    "type" : "string"
+                  },
+                  "last_name" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          },
+          "description" : "SingUp jobSeeker User (send code to email But it is not working at the moment )"
+        }
+      }
+    },
+    "/auth/user/sign_google" : {
+      "post" : {
+        "tags" : [ "jobSeeker" ],
+        "summary" : "SignUp User with Google Api's",
+        "operationId" : "SignUpWithGoogle",
+        "responses" : {
+          "200" : {
+            "description" : "signup in and send bearer token /*OR*/ error message when login as another user type  There is no permission with Job Seeker"
+          },
+          "422" : {
+            "description" : "invalid input, object invalid"
+          }
+        },
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "email" : {
+                    "type" : "string"
+                  },
+                  "id" : {
+                    "type" : "integer",
+                    "example" : "102557*******"
+                  },
+                  "idToken" : {
+                    "type" : "string"
+                  },
+                  "name" : {
+                    "type" : "string"
+                  },
+                  "provider" : {
+                    "type" : "string",
+                    "example" : "google"
+                  }
+                }
+              }
+            }
+          },
+          "description" : "SingUp jobSeeker User"
+        }
+      }
+    },
+    "/auth/user/sign_facebook" : {
+      "post" : {
+        "tags" : [ "jobSeeker" ],
+        "summary" : "SignUp User with facebook Api's",
+        "operationId" : "SignUpWithFaceBook",
+        "responses" : {
+          "200" : {
+            "description" : "signup in and send bearer token /*OR*/ error message when login as another user type  There is no permission with Job Seeker"
+          },
+          "422" : {
+            "description" : "invalid input, object invalid"
+          }
+        },
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "email" : {
+                    "type" : "string"
+                  },
+                  "token" : {
+                    "type" : "string",
+                    "example" : "eyJhbGciOiJSUzI1NiI******"
+                  },
+                  "name" : {
+                    "type" : "string"
+                  },
+                  "provider" : {
+                    "type" : "string",
+                    "example" : "facebook"
+                  }
+                }
+              }
+            }
+          },
+          "description" : "SingUp facebook jobSeeker User"
+        }
+      }
+    },
+    "/auth/verify" : {
+      "post" : {
+        "tags" : [ "jobSeeker" ],
+        "summary" : "verify user with verification code from email Api's",
+        "operationId" : "verifyUser",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "email" : {
+                    "type" : "string",
+                    "example" : "thuel@example.com"
+                  },
+                  "verification_code" : {
+                    "type" : "string",
+                    "example" : "54AW"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "message: You have successfully verified your email address./*OR*/ error: Verification code is invalid./*OR*/ Verification code is expired.please click send code again.. /*OR*/ error in email or Verification code"
+          },
+          "422" : {
+            "description" : "invalid input, object invalid"
+          },
+          "401" : {
+            "$ref" : "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/auth/send_code_again" : {
+      "post" : {
+        "tags" : [ "jobSeeker" ],
+        "summary" : "Send verification code to email again Api's",
+        "operationId" : "SendCode",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "email" : {
+                    "type" : "string",
+                    "example" : "thuel@example.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "message: Please verify your email address, please check your inbox../*OR*/ error: Email does not found on our database"
+          },
+          "422" : {
+            "description" : "invalid input, object invalid"
+          },
+          "401" : {
+            "$ref" : "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/auth/send_password_reset_link" : {
+      "post" : {
+        "tags" : [ "Reset Password" ],
+        "summary" : "send email Includes Reset Token Api's",
+        "operationId" : "SendResetPassEmail",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "email" : {
+                    "type" : "string",
+                    "example" : "thuel@example.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "message:Reset Email is send successfully, please check your inbox./*OR*/ error: Email does not found on our database"
+          },
+          "422" : {
+            "description" : "invalid input, object invalid"
+          }
+        }
+      }
+    },
+    "/auth/send_reset_token_again" : {
+      "post" : {
+        "tags" : [ "Reset Password" ],
+        "summary" : "send email Includes Reset Token Again Api's",
+        "operationId" : "SendResetPassEmailAgain",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "email" : {
+                    "type" : "string",
+                    "example" : "thuel@example.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "message:Reset Email is send successfully, please check your inbox./*OR*/ error: Email does not found on our database"
+          },
+          "422" : {
+            "description" : "invalid input, object invalid"
+          }
+        }
+      }
+    },
+    "/auth/check_token" : {
+      "post" : {
+        "tags" : [ "Reset Password" ],
+        "summary" : "Check Reset Token Again Api's",
+        "operationId" : "CheckRestToken",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "email" : {
+                    "type" : "string",
+                    "example" : "thuel@example.com"
+                  },
+                  "resetToken" : {
+                    "type" : "string",
+                    "example" : "5rYlhKd"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "error: Email does not found on our database./*OR*/ data: This token is valid /*OR*/ error: Token or Email is incorrect"
+          },
+          "422" : {
+            "description" : "invalid input, object invalid"
+          }
+        }
+      }
+    },
+    "/auth/reset_password" : {
+      "post" : {
+        "tags" : [ "Reset Password" ],
+        "summary" : "reset Password Api's",
+        "operationId" : "ResetPassword",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "email" : {
+                    "type" : "string",
+                    "example" : "thuel@example.com"
+                  },
+                  "paaword" : {
+                    "type" : "string",
+                    "example" : 123456
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "data:Password Successfully Changed/*OR*/ error: Email does not found on our database."
+          },
+          "422" : {
+            "description" : "invalid input, object invalid"
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "securitySchemes" : {
+      "bearerAuth" : {
+        "type" : "http",
+        "scheme" : "bearer",
+        "bearerFormat" : "JWT"
+      }
+    },
+    "responses" : {
+      "UnauthorizedError" : {
+        "description" : "Unauthorized"
+      }
+    }
+  }
+}
